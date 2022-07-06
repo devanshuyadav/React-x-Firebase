@@ -7,10 +7,21 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup, currentUser } = useAuth();
+  const { signup, GoogleSignup, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  async function handleGoogleSubmit() {
+    try {
+      setError("");
+      setLoading(true);
+      await GoogleSignup(emailRef.current.value, passwordRef.current.value);
+      navigate("/");
+    } catch {
+      setError("Couldn't create an account with google!");
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -38,6 +49,11 @@ export default function Signup() {
           {/* {JSON.stringify(currentUser)} */}
           {/* {currentUser.email} */}
           {error && <Alert variant="danger">{error}</Alert>}
+          <div>
+            <center>
+              <button onClick={handleGoogleSubmit}>Sign In with Google</button>
+            </center>
+          </div>
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
