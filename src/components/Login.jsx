@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
 import {
-  Form,
+  Alert,
   Button,
   Card,
-  Alert,
-  Container,
-  Row,
   Col,
-  Image,
+  Container,
   FloatingLabel,
+  Form,
+  Image,
+  Row
 } from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";

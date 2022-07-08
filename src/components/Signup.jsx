@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
 import {
-  Form,
+  Alert,
   Button,
   Card,
-  Alert,
-  Container,
-  Row,
   Col,
+  Container,
   FloatingLabel,
+  Form,
   Image,
+  Row,
 } from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signup, GoogleSignup, currentUser } = useAuth();
+  const { signup, GoogleSignup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
