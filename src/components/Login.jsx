@@ -48,17 +48,26 @@ export default function Login() {
   }
 
   return (
-    <>
+    <div
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
       <Card>
-        <Card.Body style={{ padding: "0" }}>
+        <Card.Body
+          style={{
+            padding: "0",
+            boxShadow: "2px 2px 10px -2px rgba(0,0,0,0.75)",
+            maxWidth: "800px",
+          }}
+        >
           <Container>
             <Row>
               <Col
                 md="4"
                 className="d-none d-md-block"
-                style={{ padding: "0", overflow: "hidden", maxHeight: "60vh" }}
+                style={{ padding: "0", overflow: "hidden", maxHeight: "70vh" }}
               >
-                <Image src="https://images.unsplash.com/photo-1618331833071-ce81bd50d300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3QlMjBhcnR8ZW58MHx8MHx8&w=1000&q=80" />
+                <Image src="https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" />
               </Col>
               <Col md="8" className="px-5 py-3">
                 <h4 className="text-left mb-4">Log in</h4>
@@ -109,13 +118,13 @@ export default function Login() {
                   <Link to="/forgot-password">Forgot password?</Link>
                 </div>
                 <div className="w-100 text-center mt-2">
-                  Create an account instead? <Link to="/signup">Sign Up!</Link>
+                  Create an account instead? <Link to="/signup">Sign Up</Link>
                 </div>
               </Col>
             </Row>
           </Container>
         </Card.Body>
       </Card>
-    </>
+    </div>
   );
 }

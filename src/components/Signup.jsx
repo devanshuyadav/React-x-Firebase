@@ -1,5 +1,16 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Card,
+  Alert,
+  Container,
+  Row,
+  Col,
+  FloatingLabel,
+  Image,
+} from "react-bootstrap";
+import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -42,43 +53,94 @@ export default function Signup() {
   }
 
   return (
-    <>
+    <div
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
       <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Sign Up</h2>
-          {/* {JSON.stringify(currentUser)} */}
-          {/* {currentUser.email} */}
-          {error && <Alert variant="danger">{error}</Alert>}
-          <div>
-            <center>
-              <button onClick={handleGoogleSubmit}>Sign In with Google</button>
-            </center>
-          </div>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
+        <Card.Body
+          style={{
+            padding: "0",
+            boxShadow: "2px 2px 10px -2px rgba(0,0,0,0.75)",
+            maxWidth: "800px",
+          }}
+        >
+          <Container>
+            <Row>
+              <Col
+                md="4"
+                className="d-none d-md-block"
+                style={{ padding: "0", overflow: "hidden", maxHeight: "70vh" }}
+              >
+                <Image src="https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" />
+              </Col>
+              <Col md="8" className="px-5 py-3">
+                <h4 className="text-left mb-4">Sign Up</h4>
+                {/* {JSON.stringify(currentUser)} */}
+                {/* {currentUser.email} */}
+                {error && <Alert variant="danger">{error}</Alert>}
+                <div className="mb-5">
+                  <Button
+                    className="d-flex align-items-center rounded-pill"
+                    variant="light"
+                    onClick={handleGoogleSubmit}
+                  >
+                    <FcGoogle className="mx-3" />
+                    Log In with Google
+                  </Button>
+                </div>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group id="email" className="mb-3">
+                    <FloatingLabel controlId="floatingInput" label="Email">
+                      <Form.Control
+                        type="email"
+                        ref={emailRef}
+                        placeholder="EMAIL"
+                        required
+                      />
+                    </FloatingLabel>
+                  </Form.Group>
 
-            <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />
-            </Form.Group>
+                  <Form.Group id="password" className="mb-3">
+                    <FloatingLabel
+                      controlId="floatingPassword"
+                      label="Password"
+                    >
+                      <Form.Control
+                        type="password"
+                        ref={passwordRef}
+                        placeholder="password"
+                        required
+                      />
+                    </FloatingLabel>
+                  </Form.Group>
 
-            <Form.Group id="password-confirm">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control type="password" ref={passwordConfirmRef} required />
-            </Form.Group>
+                  <Form.Group id="password-confirm" className="mb-3">
+                    <FloatingLabel
+                      controlId="floatingPassword"
+                      label="Confirm Password"
+                    >
+                      <Form.Control
+                        type="password"
+                        ref={passwordConfirmRef}
+                        placeholder="confirm password"
+                        required
+                      />
+                    </FloatingLabel>
+                  </Form.Group>
 
-            <Button disabled={loading} type="submit" className="w-100 mt-4">
-              Sign Up
-            </Button>
-          </Form>
+                  <Button disabled={loading} type="submit" className="w-100">
+                    Sign Up
+                  </Button>
+                </Form>
+                <div className="w-100 text-center mt-2">
+                  Already have an account? <Link to="/login">Log in</Link>.
+                </div>
+              </Col>
+            </Row>
+          </Container>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Already have an account? <Link to="/login">Log in</Link>.
-      </div>
-    </>
+    </div>
   );
 }

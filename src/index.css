@@ -7,3 +7,12 @@ body {
 .form-control {
   height: 48px;
 }
+
+a {
+  color: #212529;
+  text-decoration: none;
+}
+
+.nav-link {
+  color: #212529;
+}
