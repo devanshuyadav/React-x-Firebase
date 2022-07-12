@@ -14,5 +14,17 @@ a {
 }
 
 .nav-link {
-  color: #212529;
+  color: #d5d5d5;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .dropdown-menu {
+    right: 20%;
+    top: 120%;
+  }
 }

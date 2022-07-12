@@ -10,7 +10,7 @@ import UpdateProfile from "./UpdateProfile";
 
 function App() {
   return (
-    <Container>
+    <Container fluid>
       <div className="w-100">
         <Router>
           <AuthProvider>
