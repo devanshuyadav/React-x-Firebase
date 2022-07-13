@@ -6,9 +6,10 @@ import {
   Image,
   Nav,
   Navbar,
-  NavDropdown
+  NavDropdown,
 } from "react-bootstrap";
 import { FiEdit3, FiLogOut } from "react-icons/fi";
+import { IoIosArrowDown } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -37,16 +38,22 @@ export default function Dashboard() {
           e.preventDefault();
           onClick(e);
         }}
+        className="d-flex flex-row profile-dropdown-toggle align-items-center"
       >
         {children}
         <Image
           src={currentUser.photoURL}
           height="40px"
           width="40px"
-          className="rounded-circle mx-3"
+          className="rounded-circle me-3"
           alt="Profile image"
           referrerpolicy="no-referrer"
         />
+        <span>
+          <div>{currentUser.displayName}</div>
+          <div className="small-text">{currentUser.email}</div>
+        </span>
+        <IoIosArrowDown className="ms-3" />
       </Nav.Link>
     </>
   ));
@@ -63,7 +70,7 @@ export default function Dashboard() {
           className={className}
           aria-labelledby={labeledBy}
         >
-          <ul className="list-unstyled">
+          <ul className="list-unstyled mb-0">
             {React.Children.toArray(children).filter(
               (child) =>
                 !value || child.props.children.toLowerCase().startsWith(value)
@@ -84,7 +91,9 @@ export default function Dashboard() {
         variant="light"
       >
         <Container>
-          <Navbar.Brand href="#home">React x Firebase</Navbar.Brand>
+          <Navbar.Brand className="big-heading" href="#home">
+            React x Firebase
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -95,15 +104,17 @@ export default function Dashboard() {
               <Dropdown.Toggle
                 as={CustomToggle}
                 id="dropdown-custom-components"
-              >
-                {/* {currentUser.displayName} */}
-              </Dropdown.Toggle>
+              ></Dropdown.Toggle>
 
-              <Dropdown.Menu as={CustomMenu}>
-                <NavDropdown.Item disabled="true">
-                  Welcome, {currentUser.displayName}
+              <Dropdown.Menu className="w-100" as={CustomMenu}>
+                <NavDropdown.Item
+                  className="heading"
+                  style={{ color: "#000" }}
+                  disabled="true"
+                >
+                  Welcome,{" "}
+                  {currentUser.displayName.split(" ").slice(0, 1).join(" ")}
                 </NavDropdown.Item>
-
                 <Link className="dropdown-item mt-3" to="/update-profile">
                   <FiEdit3 className="me-3" />
                   Edit Profile
@@ -115,16 +126,68 @@ export default function Dashboard() {
                     Log Out
                   </span>
                 </NavDropdown.Item>
+                <NavDropdown.Item disabled="true">
+                  © 2022 devanshuyadav
+                </NavDropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <main
+        className="position-relative text-center pt-5"
+        style={{
+          marginTop: "70px",
+          height: "calc(100vh - 70px)",
+          overflow: "hidden",
+        }}
+      >
+        <span
+          style={{
+            position: "absolute",
+            top: "1%",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+          className="bigger-heading"
+        >
+          Welcome to
+        </span>
+        <span
+          className="firebase"
+          style={{
+            position: "absolute",
+            top: "40%",
+            width: "100%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <Image
+            style={{
+              // animation: "swing 0.6s infinite alternate ease-out",
+            }}
+            // src="https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png"
+            src="https://drive.google.com/uc?id=1Cx5Q42vatN2djZXzfzgDMrTzMeO4sn_9"
+          />
+        </span>
 
-      <Image
-        width="100%"
-        // src="https://cdn-media-1.freecodecamp.org/images/kE3b4TOXtlEYpwhRvtSMi87mkWPaTfzbWOC9"
-      />
+        <span
+          className="react"
+          style={{
+            position: "absolute",
+            top: "40%",
+            width: "100%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          <Image
+            style={{
+              animation: "rotate 6s linear infinite",
+            }}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
+          />
+        </span>
+      </main>
     </>
   );
 }

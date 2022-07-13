@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import {
+  Alert, Button, ButtonGroup, Card, Container, Form
+} from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -42,7 +44,7 @@ export default function UpdateProfile() {
   }
 
   return (
-    <>
+    <Container className="w-50 mt-5">
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Update Profile</h2>
@@ -77,16 +79,23 @@ export default function UpdateProfile() {
                 placeholder="Leave blank to keep it same!"
               />
             </Form.Group>
-
-            <Button disabled={loading} type="submit" className="w-100 mt-4">
-              Update
-            </Button>
+            <div className="text-center">
+              <ButtonGroup className="w-50 mt-4" aria-label="Save or cancel">
+                <Link className="btn btn-outline-danger" role="button" to="/">
+                  Cancel
+                </Link>
+                <Button
+                  disabled={loading}
+                  type="submit"
+                  variant="outline-success"
+                >
+                  Update
+                </Button>
+              </ButtonGroup>
+            </div>
           </Form>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        <Link to="/">Cancel</Link>.
-      </div>
-    </>
+    </Container>
   );
 }

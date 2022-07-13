@@ -2,29 +2,100 @@
 
 body {
   font-family: "IBM Plex Sans", sans-serif;
+  background-color: #fcfbfb;
 }
 
 .form-control {
   height: 48px;
 }
 
-a {
-  color: #212529;
-  text-decoration: none;
+.bigger-heading {
+  font-size: 2.369rem;
 }
 
-.nav-link {
-  color: #d5d5d5;
+.big-heading {
+  font-size: 1.777rem;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #fff;
+.heading {
+  font-size: 1.333rem;
+}
+
+.small-text {
+  font-size: 0.75rem;
+}
+
+.smaller-text {
+  font-size: 0.563rem;
+}
+
+.profile-dropdown-toggle {
+  border: 1px solid hsl(215, 5%, 94%);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.profile-dropdown-toggle:hover {
+  border-color: hsl(215, 5%, 50%);
 }
 
 @media screen and (min-width: 768px) {
   .dropdown-menu {
-    right: 20%;
+    right: 0%;
     top: 120%;
+  }
+}
+
+/* react logo animation */
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%);
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    transform: rotate(360deg);
+  }
+}
+
+/* firebase logo animation */
+@keyframes swing {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Laptop & mobile view for icons */
+@media (min-width: 320px) {
+  /* smartphones, Android phones, landscape iPhone */
+  .react {
+    left: 30%;
+  }
+  .react > img {
+    width: 30%;
+  }
+  .firebase {
+    left: 70%;
+  }
+  .firebase > img {
+    width: 45%;
+  }
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  .react {
+    left: 40%;
+  }
+  .react > img {
+    width: 15%;
+  }
+  .firebase {
+    left: 60%;
+  }
+  .firebase > img {
+    width: 20%;
   }
 }
