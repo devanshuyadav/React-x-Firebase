@@ -8,10 +8,12 @@ import {
   Navbar,
   NavDropdown,
 } from "react-bootstrap";
+import { BsMouse } from "react-icons/bs";
 import { FiEdit3, FiLogOut } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import HeroSection from "./HeroSection";
 
 export default function Dashboard() {
   const [error, setError] = useState("");
@@ -47,7 +49,7 @@ export default function Dashboard() {
           width="40px"
           className="rounded-circle me-3"
           alt="Profile image"
-          referrerpolicy="no-referrer"
+          referrerPolicy="no-referrer"
         />
         <span>
           <div>{currentUser.displayName}</div>
@@ -154,6 +156,17 @@ export default function Dashboard() {
           Welcome to
         </span>
         <span
+          style={{
+            position: "absolute",
+            top: "40%",
+            transform: "translate(-50%, -50%)",
+            transform: "scale(2)",
+            zIndex: "2",
+          }}
+        >
+          &times;
+        </span>
+        <span
           className="firebase"
           style={{
             position: "absolute",
@@ -162,13 +175,7 @@ export default function Dashboard() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Image
-            style={{
-              // animation: "swing 0.6s infinite alternate ease-out",
-            }}
-            // src="https://seeklogo.com/images/F/firebase-logo-402F407EE0-seeklogo.com.png"
-            src="https://drive.google.com/uc?id=1Cx5Q42vatN2djZXzfzgDMrTzMeO4sn_9"
-          />
+          <Image src="https://drive.google.com/uc?id=1Cx5Q42vatN2djZXzfzgDMrTzMeO4sn_9" />
         </span>
 
         <span
@@ -187,7 +194,22 @@ export default function Dashboard() {
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png"
           />
         </span>
+        <span
+          className="position-absolute"
+          style={{
+            bottom: "100px",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+        >
+          <BsMouse
+            style={{ animation: "swing 0.6s infinite alternate ease-out" }}
+          />
+          <br />
+          Scroll down for more
+        </span>
       </main>
+      <HeroSection />
     </>
   );
 }

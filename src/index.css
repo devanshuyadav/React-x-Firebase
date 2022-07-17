@@ -5,6 +5,11 @@ body {
   background-color: #fcfbfb;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .form-control {
   height: 48px;
 }
@@ -64,7 +69,7 @@ body {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-15px);
+    transform: translateY(-10px);
   }
 }
 
