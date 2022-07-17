@@ -63,6 +63,7 @@ export default function Dashboard() {
   // Custom dropdown menu
   const CustomMenu = React.forwardRef(
     ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
+      // eslint-disable-next-line
       const [value, setValue] = useState("");
 
       return (
@@ -159,8 +160,7 @@ export default function Dashboard() {
           style={{
             position: "absolute",
             top: "40%",
-            transform: "translate(-50%, -50%)",
-            transform: "scale(2)",
+            transform: "translate(-50%, -50%) scale(2)",
             zIndex: "2",
           }}
         >
