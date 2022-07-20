@@ -13,6 +13,7 @@ import { FiEdit3, FiLogOut } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import Footer from "./Footer";
 import HeroSection from "./HeroSection";
 
 export default function Dashboard() {
@@ -210,6 +211,7 @@ export default function Dashboard() {
         </span>
       </main>
       <HeroSection />
+      <Footer />
     </>
   );
 }

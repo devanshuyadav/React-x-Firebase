@@ -1,5 +1,13 @@
 import React, { useRef, useState } from "react";
-import { Alert, Button, Card, Form } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Alert,
+  Button,
+  Card,
+  Form,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -26,32 +34,36 @@ export default function ForgotPassword() {
   }
 
   return (
-    <>
-      <Card>
-        <Card.Body>
-          <h2 className="text-center mb-4">Password Reset </h2>
-          {/* {JSON.stringify(currentUser)} */}
-          {/* {currentUser.email} */}
-          {error && <Alert variant="danger">{error}</Alert>}
-          {message && <Alert variant="success">{message}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />
-            </Form.Group>
+    <Container className="mt-5">
+      <Row>
+        <Col sm={12} md={6} className="mx-auto">
+          <Card>
+            <Card.Body>
+              <h2 className="text-center mb-4">Password Reset </h2>
+              {/* {JSON.stringify(currentUser)} */}
+              {/* {currentUser.email} */}
+              {error && <Alert variant="danger">{error}</Alert>}
+              {message && <Alert variant="success">{message}</Alert>}
+              <Form onSubmit={handleSubmit}>
+                <Form.Group id="email">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" ref={emailRef} required />
+                </Form.Group>
 
-            <Button disabled={loading} type="submit" className="w-100 mt-4">
-              Reset Password
-            </Button>
-          </Form>
-        </Card.Body>
-        <div className="w-100 text-center mb-3">
-          <Link to="/login">Log in</Link>
-        </div>
-      </Card>
-      <div className="w-100 text-center mt-2">
-        Create an account instead? <Link to="/signup">Sign Up!</Link>
-      </div>
-    </>
+                <Button disabled={loading} type="submit" className="w-100 mt-4">
+                  Reset Password
+                </Button>
+              </Form>
+            </Card.Body>
+            <div className="w-100 text-center mb-3">
+              <Link to="/login">Log in</Link>
+            </div>
+          </Card>
+          <div className="w-100 text-center mt-2">
+            Create an account instead? <Link to="/signup">Sign Up</Link>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
