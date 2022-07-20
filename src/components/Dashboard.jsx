@@ -116,8 +116,7 @@ export default function Dashboard() {
                   style={{ color: "#000" }}
                   disabled="true"
                 >
-                  Welcome,{" "}
-                  {currentUser.displayName.split(" ").slice(0, 1).join(" ")}
+                  Welcome, {currentUser.displayName}
                 </NavDropdown.Item>
                 <Link className="dropdown-item mt-3" to="/update-profile">
                   <FiEdit3 className="me-3" />
