@@ -117,7 +117,7 @@ export default function Signup() {
 
                   <Form.Group id="password-confirm" className="mb-3">
                     <FloatingLabel
-                      controlId="floatingPassword"
+                      controlId="floatingConfirmPassword"
                       label="Confirm Password"
                     >
                       <Form.Control
