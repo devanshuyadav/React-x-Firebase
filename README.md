@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# React x Firebase
+A Login-Signup system built on [React.js](https://reactjs.org/) and [Firebase](https://firebase.google.com/).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The UI is inspired by [Reddit's](https://www.reddit.com/) UI.
+
+<img src="https://drive.google.com/uc?id=1rSE_IYU8dFTbh3WddLK9f2dDuguUH3-T">
 
 ## Available Scripts
 
