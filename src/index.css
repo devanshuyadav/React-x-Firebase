@@ -24,6 +24,7 @@ a {
 
 .heading {
   font-size: 1.333rem;
+  white-space: initial;
 }
 
 .small-text {

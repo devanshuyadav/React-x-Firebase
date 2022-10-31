@@ -54,7 +54,16 @@ export default function Dashboard() {
         />
         <span>
           <div>{currentUser.displayName}</div>
-          <div className="small-text">{currentUser.email}</div>
+          <div className="small-text">
+            {currentUser.email.split("@")[0].slice(0, 3) +
+              "*".repeat(
+                currentUser.email.split("@")[0].length - 3 < 10
+                  ? currentUser.email.split("@")[0].length - 3
+                  : 10
+              ) +
+              "@" +
+              currentUser.email.split("@")[1]}
+          </div>
         </span>
         <IoIosArrowDown className="ms-3" />
       </Nav.Link>
@@ -116,7 +125,7 @@ export default function Dashboard() {
                   style={{ color: "#000" }}
                   disabled="true"
                 >
-                  Welcome, {currentUser.displayName}
+                  Welcome, {currentUser.displayName.split(" ")[0]}
                 </NavDropdown.Item>
                 <Link className="dropdown-item mt-3" to="/update-profile">
                   <FiEdit3 className="me-3" />
@@ -130,7 +139,7 @@ export default function Dashboard() {
                   </span>
                 </NavDropdown.Item>
                 <NavDropdown.Item disabled="true">
-                  © 2022 devanshuyadav
+                  © {new Date().getFullYear()} devanshuyadav
                 </NavDropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
